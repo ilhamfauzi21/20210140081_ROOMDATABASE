@@ -11,7 +11,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -39,9 +38,6 @@ import com.example.roomsiswab.model.HomeViewModel
 import com.example.roomsiswab.model.PenyediaViewModel
 import com.example.roomsiswab.navigasi.SiswaTopAppBar
 import com.example.roomsiswab.navigasi.DestinasiNavigasi
-
-
-
 object DestinasiHome : DestinasiNavigasi {
     override val route = "home"
     override val titleRes = R.string.app_name
