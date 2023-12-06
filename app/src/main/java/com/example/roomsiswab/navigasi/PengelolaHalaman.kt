@@ -14,28 +14,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.roomsiswab.R
 import com.example.roomsiswab.halaman.DestinasiEntry
 import com.example.roomsiswab.halaman.DestinasiHome
 import com.example.roomsiswab.halaman.EntrySiswaScreen
 import com.example.roomsiswab.halaman.HomeScreen
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HostNavigasi(
-    navController: NavHostController,
-    modifier: Modifier = Modifier
-){
-    NavHost(navController=navController, startDestination = DestinasiHome.route,modifier = Modifier)
-    {
-        composable(DestinasiHome.route){
-            HomeScreen(navigateToItemEntry = {navController.navigate(DestinasiEntry.route)},
-            )
-        }
-        composable(DestinasiEntry.route){
-            EntrySiswaScreen(navigateBack = {navController.popBackStack()})
-        }
-    }
+fun SiswaApp(navController: NavHostController= rememberNavController()) {
+    HostNavigasi(navController = navController)
+
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,6 +34,7 @@ fun SiswaTopAppBar(
     modifier: Modifier = Modifier,
     scrollBehavior: TopAppBarScrollBehavior? = null,
     navigateUp: () -> Unit = {}
+
 ) {
     CenterAlignedTopAppBar(title = { Text(title) },
         modifier = modifier,
@@ -61,4 +51,20 @@ fun SiswaTopAppBar(
             }
         }
     )
+}
+@Composable
+fun HostNavigasi(
+    navController: NavHostController,
+    modifier: Modifier = Modifier
+){
+    NavHost(navController=navController, startDestination = DestinasiHome.route,modifier = Modifier)
+    {
+        composable(DestinasiHome.route){
+            HomeScreen(navigateToItemEntry = {navController.navigate(DestinasiEntry.route)},
+            )
+        }
+        composable(DestinasiEntry.route){
+            EntrySiswaScreen(navigateBack = {navController.popBackStack()})
+        }
+    }
 }
